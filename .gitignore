@@ -42,3 +42,4 @@ logs/
 # Task queue / cache
 celerybeat-schedule
 *.sqlite3
+.pytest_cache/

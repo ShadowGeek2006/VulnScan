@@ -6,6 +6,8 @@ Run with: uvicorn backend.main:app --reload
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from backend.api.scan import router as scan_router
+
 app = FastAPI(
     title="VulnScope",
     description="Website vulnerability assessment and scoring API",
@@ -18,6 +20,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
+app.include_router(scan_router)
 
 
 @app.get("/health")
